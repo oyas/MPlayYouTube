@@ -1,0 +1,15 @@
+{
+  "name": "MPlayYouTube",
+  "version": "1.0",
+  "description": "YouTube等の動画をMPlayerで再生します。",
+  "background_page": "background.html",
+  "page_action": {
+    "default_icon": "icon.png",
+    "default_title": "MPlayerで再生"	//ツールチップ（説明）
+  },
+  "permissions" : [
+    "tabs",
+    "http://localhost/"
+  ]
+}
+

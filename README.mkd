@@ -1,0 +1,39 @@
+MPlayYouTube
+
+Chromeで、普通にWebブラウジングするには文句ない軽さなんだけど、
+YouTubeを再生させると重くて。。
+そんな微妙なスペックのPCをもった人(たとえば僕)のために作ったプログラムです。
+
+インストール
+----
+
+**youtube-dlのインストール**
+端末で`$ apt-get install youtube-dl`としてください。
+
+**ChromeExtension**  
+Chromeで拡張機能のページを開き、「デベロッパーモード」ON、「パッケージ化されていない拡張機能を読み込みます」で読み込んでください。
+YouTubeの動画再生ページでアドレスバーに緑のアイコンが現れれば成功です。
+
+**serverのコンパイル**  
+端末で`$ make`としてコンパイルしてください。
+
+使い方
+-----
+**Chromeの拡張機能として使う**  
+1. serverを起動します。(自動で起動はしないので注意。)
+2. YouTubeの動画再生ページでアドレスバーの緑のアイコンをクリック。
+3. MPlayerで再生されれば成功。
+
+**playFlashVideo.sh単体で使う**  
+端末で`./playFlashVideo.sh -h`と打ち込んでください。
+
+
+
+構成
+----
+
+playFlashVideo.sh	・・・本体。YouTubeをMPlayerで再生させるシェルスクリプト
+server				・・・サーバー。ChromeExtensionとplayFlashVideo.shとの橋渡し
+ChromeExtension/	・・・Chromeの拡張機能
+
+
