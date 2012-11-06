@@ -32,7 +32,6 @@ playFlashVideo.sh [コマンド] (動画ページのURL) \n\
 \t-h\tヘルプ表示 \n\
 \t-m\tMPlayerで再生\n\
 \t-f (フォーマット)\tフォーマット指定(Youtubeのみ)\n\
-\t-g\t動画URLのみ取得\n\
 "
 }
 
@@ -42,7 +41,6 @@ playFlashVideo.sh [コマンド] (動画ページのURL) \n\
 URL=""		#最後の引数(サイトのURL)
 MOVIE_URL=""	#動画URL
 STAT=0	#戻り値を記憶しておく
-URL_Only=0	#動画URLを返すかどうか
 
 
 
@@ -56,7 +54,6 @@ do
 	case $OPT in
 		"m" ) MOVIEPLAYER=0 ;;
 		"f" ) Youtube_MaxQuality="$OPTARG" ;;
-		"g") URL_Only=1;;
 		"h" ) help ; exit 0;;
 		\?) echo "不明なオプションです。" ; exit 1 ;;
 	esac
@@ -83,12 +80,6 @@ STAT=$?
 if [ ${STAT} -ne 0 ] ; then
 	echo "エラーが発生しました。youtube-dl: ${STAT}"
 	exit 1;
-fi
-
-#URLのみの場合、動画URLを返して終了
-if [ ${URL_Only} -eq 1 ] ; then
-	echo ${MOVIE_URL}
-	exit 0
 fi
 
 #
