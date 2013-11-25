@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #youtubeのクオリティーの最大値(fmt=の値)
-Youtube_MaxQuality=22
+Youtube_MaxQuality=37	//37=1080p  22=720p
 
 #動画再生コマンド( \$MOVIE_URL:動画URL)
 #デフォルトはMPlayer。それでいい場合は0を指定。
