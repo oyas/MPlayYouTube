@@ -25,9 +25,9 @@ function(tab) {
   
   //送信
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:12345/?" + tab.url, true);
+  xhr.open("GET", "http://localhost:54321/?" + tab.url, true);
   xhr.send();
   
-  parent.main.document.write(now.toLocaleString() + "送信\"" + tab.url + "\"\n");	//書き込み
+ // parent.main.document.write(now.toLocaleString() + "送信\"" + tab.url + "\"\n");	//書き込み
 }
 );

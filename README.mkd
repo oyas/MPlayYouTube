@@ -4,14 +4,14 @@ Chromeで、普通にWebブラウジングするには文句ない軽さなん�
 YouTubeを再生させると重くて。。
 そんな微妙なスペックのPCをもった人(たとえば僕)のために作ったプログラムです。
 
-とても軽くYouTubeのHD画質動画を再生させることができます。
+とても軽くYouTubeのHD画質動画を再生させることができます。僕の環境では２・３倍軽くなりました。
 
 
 インストール
 ----
 
 **youtube-dlのインストール**  
-端末で`$ apt-get install youtube-dl`としてください。
+端末で`$ sudo apt-get install youtube-dl`としてください。
 
 **ChromeExtension**  
 Chromeで拡張機能のページを開き、「デベロッパーモード」ON、「パッケージ化されていない拡張機能を読み込む...」で読み込んでください。
@@ -21,16 +21,26 @@ YouTubeの動画再生ページでアドレスバーに緑のアイコンが現�
 **serverのコンパイル**  
 端末で`$ make`としてコンパイルしてください。
 
+**playFlashVideo.hの配置**
+MPlayYouTubeServerをデーモンとして実行するため必要です。端末から
+	$ chmod +x ./playFlashVideo.sh
+	$ ln -s ./playFlashVideo.sh ~/.playFlashVideo.sh
+を実行します。
+
 使い方
 -----
 
 **Chromeの拡張機能として使う**  
 
-1. serverを起動します。(自動で起動はしないので注意。)
-   `(MPlayYouTubeのディレクトリで)$ ./server`
-   なお、serverが起動している間、その端末は操作できません。終了はCtrl+C
-2. YouTubeの動画再生ページでアドレスバーの緑のアイコンをクリック。
-3. MPlayerで再生されれば成功。
+1. ~~serverを起動します。(自動で起動はしないので注意。)~~
+   ~~`(MPlayYouTubeのディレクトリで)$ ./server`~~
+   ~~なお、serverが起動している間、その端末は操作できません。終了はCtrl+C~~
+   serverがデーモンとして起動できるようになりました。
+   `(MPlayYouTubeのディレクトリで)$ ./MPlayYouTubeServer`
+   以後は電源が切れるまでバックグラウンドで動作します。終了させたい場合は、
+   ブラウザから<http://localhost:54321/?exit>へアクセスします。
+2. YouTubeの動画再生ページでアドレスバーの緑のアイコンをクリックします。
+3. MPlayerで再生されれば成功です。(たまに再生できない動画もあります)
 
 **playFlashVideo.sh単体で使う**  
 
@@ -42,7 +52,8 @@ YouTubeの動画再生ページでアドレスバーに緑のアイコンが現�
 ----
 
 playFlashVideo.sh	・・・本体。YouTubeをMPlayerで再生させるシェルスクリプト  
-server				・・・サーバー。ChromeExtensionとplayFlashVideo.shとの橋渡し  
+MPlayYouTubeServer	・・・サーバー。ChromeExtensionとplayFlashVideo.shとの橋渡し  
 ChromeExtension/	・・・Chromeの拡張機能  
+
 
 
